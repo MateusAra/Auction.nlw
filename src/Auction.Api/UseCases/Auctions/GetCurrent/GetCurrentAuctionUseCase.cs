@@ -1,4 +1,5 @@
 ﻿using Auction.Api.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace Auction.Api.UseCases.Auctions.GetCurrent;
 
@@ -8,6 +9,11 @@ public class GetCurrentAuctionUseCase
     {
         var repository = new AuctionDbContext();
 
-        return repository.Auctions.ToList();
+        var today = DateTime.Now;
+
+        return repository
+                .Auctions
+                .Include(auction => auction.Items)
+                .Where(x => x.Starts <= today).ToList();
     }
 }
