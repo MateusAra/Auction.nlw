@@ -1,9 +1,13 @@
-﻿namespace Auction.Api.UseCases.Auctions.GetCurrent;
+﻿using Auction.Api.Repositories;
+
+namespace Auction.Api.UseCases.Auctions.GetCurrent;
 
 public class GetCurrentAuctionUseCase
 {
-    public void Execute()
+    public List<Entities.Auction> Execute()
     {
+        var repository = new AuctionDbContext();
 
+        return repository.Auctions.ToList();
     }
 }

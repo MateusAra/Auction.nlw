@@ -3,16 +3,17 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Auction.Api.Controllers;
 
-[Route("api/[controller]")]
+[Route("/[controller]")]
 [ApiController]
 public class AuctionController : ControllerBase
 {
+    [HttpGet]
     public IActionResult GetCurrentAuction()
     {
         var useCase = new GetCurrentAuctionUseCase();
 
-        useCase.Execute();
+        var result = useCase.Execute();
 
-        return Ok();
+        return Ok(result);
     }
 }
