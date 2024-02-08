@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <Folder Include="Communication\Responses\" />
+    <Folder Include="UseCases\Auctions\Offer\CreateOffer\" />
   </ItemGroup>
 
 </Project>
