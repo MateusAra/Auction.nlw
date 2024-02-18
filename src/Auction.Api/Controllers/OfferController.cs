@@ -18,7 +18,9 @@ namespace Auction.Api.Controllers
         {
             var id = useCase.Execute(itemId, request);
 
-            return Created(string.Empty, id);
+            var response = new { Message = "Oferta criada!", Id = id };
+
+            return Created(string.Empty, response);
         }
     }
 }
