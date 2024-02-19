@@ -1,10 +1,9 @@
 ﻿using Auction.Api.Entities;
-using Auction.Api.Repositories;
 using Auction.Api.Repositories.DataAccess.Interfaces;
 
 namespace Auction.Api.Services
 {
-    public class LoggedUser
+    public class LoggedUser : ILoggedUser
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IUserRepository _userRepository;

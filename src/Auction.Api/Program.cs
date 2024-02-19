@@ -5,7 +5,7 @@ using Auction.Api.Repositories.DataAccess;
 using Auction.Api.Repositories.DataAccess.Interfaces;
 using Auction.Api.Services;
 using Auction.Api.UseCases.Auctions.GetCurrent;
-using Auction.Api.UseCases.Auctions.Offer;
+using Auction.Api.UseCases.Auctions.Offer.CreateOffer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
@@ -57,7 +57,7 @@ namespace Auction.Api
 
             builder.Services.AddScoped<AuthenticateUserAttribute>();
 
-            builder.Services.AddScoped<LoggedUser>();
+            builder.Services.AddScoped<ILoggedUser, LoggedUser>();
 
             builder.Services.AddScoped<CreateOfferUseCase>();
             builder.Services.AddScoped<GetCurrentAuctionUseCase>();

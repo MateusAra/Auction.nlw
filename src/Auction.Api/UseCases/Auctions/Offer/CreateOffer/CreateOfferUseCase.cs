@@ -3,14 +3,14 @@ using Auction.Api.Repositories;
 using Auction.Api.Repositories.DataAccess.Interfaces;
 using Auction.Api.Services;
 
-namespace Auction.Api.UseCases.Auctions.Offer
+namespace Auction.Api.UseCases.Auctions.Offer.CreateOffer
 {
     public class CreateOfferUseCase
     {
-        private readonly LoggedUser _loggedUser;
+        private readonly ILoggedUser _loggedUser;
         private readonly IOfferRepository _offerRepository;
 
-        public CreateOfferUseCase(LoggedUser loggedUser, IOfferRepository offerRepository)
+        public CreateOfferUseCase(ILoggedUser loggedUser, IOfferRepository offerRepository)
         {
             _loggedUser = loggedUser;
             _offerRepository = offerRepository;
